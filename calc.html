@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header> <span>Калькулятор</span>
+        <hr> </header>
+    <main>
+        <p id='comment'>Допустимый формат значений: цифры от 0 до 9, опционально ведущий знак "-" (минус), разделитель целой и дробной частей "." (точка). Дробная часть не должна оканчиваться на 0. Ведущие нули не допускаются. -0 не допускается. Примеры допустимых значений: 0, -0.1237, 100.2567, -133.2 . Деление на 0 не допускается.</p>
+        <div class='calcCore'>
+            <input type='number' class='args' id='argLeft' value='0' data-previous='0'>
+            <select name='action' class='action' id='action'>
+                <option value='plus'>+</option>
+                <option value='minus'>-</option>
+                <option value='mult'>*</option>
+                <option value='division'>/</option>
+            </select>
+            <input type='number' class='args' id='argRight' value='0' data-previous='0'>
+            <button class='execute' id='execute'>=</button>
+            <div class='result' id='result'>0</div>
+        </div>
+    </main>
+    <footer> 
+        <!-- тут пока пусто -->
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+header {
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+main {
+    text-align: left;
+}
+
+.calcCore {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.args {
+    font: 0.9rem "Fira Sans", sans-serif;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.args:focus {
+    outline: none;
+}
+
+.action {
+    width: 50px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.action:focus {
+    outline: none;
+}
+
+.action:hover {
+    cursor: pointer;
+    color: crimson;
+}
+
+.execute {
+    width: 40px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.execute:focus {
+    outline: none;
+}
+
+.execute:hover {
+    cursor: pointer;
+    color: crimson;
+}
+
+.result {
+    font: 0.95rem "Fira Sans", sans-serif;
+    letter-spacing: -1px;
+    width: 150px;
+    padding: 3px 1px 0px 4px;
+    outline: 1px solid gray;
+    border-radius: 1px;
+}
