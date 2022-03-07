@@ -1,6 +1,6 @@
 function displayError(comment, element, result) { // отмена изменения значения. Очистка поля результата. Цветовая индикация
-    comment.style.color = 'crimson';
-    element.style.color = 'crimson';
+    comment.style.color = 'blue';
+    element.style.color = 'blue';
 
     result.innerText = '';
     
