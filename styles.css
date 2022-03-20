@@ -8,19 +8,29 @@ main {
     text-align: left;
 }
 
-.calcCore {
+.calcCore, .historyRow {
     display: flex;
     justify-content: flex-start;
+    min-width: 620px;
 }
 
 .args {
     font: 0.9rem "Fira Sans", sans-serif;
     width: 150px;
     margin-right: 10px;
+    text-align: right;
 }
 
 .args:focus {
     outline: none;
+}
+
+.argsHistory {
+    font: 0.9rem "Fira Sans", sans-serif;
+    width: 139px;
+    margin-right: 10px;
+    text-align: right;
+    padding-right: 19px;
 }
 
 .action {
@@ -38,6 +48,13 @@ main {
     color: crimson;
 }
 
+.actionHistory {
+    width: 40px;
+    text-align: center;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
 .execute {
     width: 40px;
     text-align: center;
@@ -53,11 +70,27 @@ main {
     color: crimson;
 }
 
+.equalSignHistory {
+    width: 40px;
+    text-align: center;
+    margin-right: 10px;
+}
+
 .result {
     font: 0.95rem "Fira Sans", sans-serif;
     letter-spacing: -1px;
     width: 150px;
-    padding: 3px 1px 0px 4px;
+    padding: 3px 13px 0px 4px;
     outline: 1px solid gray;
     border-radius: 1px;
+    text-align: right;
+}
+
+.resultHistory {
+    font: 0.95rem "Fira Sans", sans-serif;
+    letter-spacing: -1px;
+    width: 150px;
+    padding: 3px 13px 0px 4px;
+    border-radius: 1px;
+    text-align: right;
 }
