@@ -1,6 +1,6 @@
 function displayError(comment, element, result) { // отмена изменения значения. Очистка поля результата. Цветовая индикация
-    comment.style.color = 'crimson';
-    element.style.color = 'crimson';
+    comment.style.color = 'orange';
+    element.style.color = 'orange';
 
     result.innerText = '';
     
@@ -13,13 +13,15 @@ function displayError(comment, element, result) { // отмена изменен
 
 function executePressed() { // вызывается при нажатии кнопки =
     console.log('execute pressed');
+    let history = document.getElementById('history');
     let comment = document.getElementById('comment');
     let argLeft = document.getElementById('argLeft');
     let argRight = document.getElementById('argRight');
     let action = document.getElementById('action');
     let result = document.getElementById('result');
     let interimResult; // промежуточный результат до вывода на экран
-    
+    let actionToDisplay; // action sign
+
     if ((checkValue(argLeft, comment, result) + checkValue(argRight, comment, result, (action.value == 'division') ? true : false)) != 0) {
         return; // одно из значений некорректное. Выход.
     }
@@ -29,20 +31,62 @@ function executePressed() { // вызывается при нажатии кно
     switch (action.value) {
         case 'plus':
             interimResult = (+argLeft.value) + (+argRight.value);
+            actionToDisplay = '+';
             break;
         case 'minus':
             interimResult = argLeft.value - argRight.value;
+            actionToDisplay = '-';
             break;
         case 'mult':
             interimResult = argLeft.value * argRight.value;
+            actionToDisplay = '*';
             break;
         case 'division':
             interimResult = argLeft.value / argRight.value;
+            actionToDisplay = '/';
             break;
     }
     
-    result.innerText = Math.floor(interimResult * 1000000000) / 1000000000; // устранение неточности вычислений. См. https://learn.javascript.ru/number#неточные-вычисления.
+    interimResult = Math.floor(interimResult * 1000000000) / 1000000000; // устранение неточности вычислений. См. https://learn.javascript.ru/number#неточные-вычисления.
+    result.innerText = interimResult;
+    addHistoryRow(+argLeft.value, +argRight.value, actionToDisplay, interimResult, history);
+}
+
+function addHistoryRow(argLeftVal, argRightVal, actionSign, interimResult, history) {
+    // history row
+    let historyRow = document.createElement('div');
+    historyRow.className = 'historyRow';
+
+    // history row elements
+    let argLeft = document.createElement('div');
+    argLeft.className = 'argsHistory';
+    argLeft.innerHTML = argLeftVal;
+
+    let action = document.createElement('div');
+    action.className = 'actionHistory';
+    action.innerHTML = actionSign;
     
+    let argRight = document.createElement('div');
+    argRight.className = 'argsHistory';
+    argRight.innerText = argRightVal;
+
+    let equalSign = document.createElement('div');
+    equalSign.className = 'equalSignHistory';
+    equalSign.innerText = '=';
+
+    let result = document.createElement('div');
+    result.className = 'resultHistory';
+    result.innerText = interimResult;
+    
+    // add history row container to the page
+    history.after(historyRow);
+
+    // fill in history row container
+    historyRow.append(argLeft);
+    historyRow.append(action);
+    historyRow.append(argRight);
+    historyRow.append(equalSign);
+    historyRow.append(result);
 }
 
 function checkValue(element, comment, result, division = false) {
