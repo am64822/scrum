@@ -22,7 +22,7 @@ main {
 }
 
 .args:focus {
-    outline: none;
+    outline: 1px solid red;
 }
 
 .argsHistory {
@@ -40,7 +40,7 @@ main {
 }
 
 .action:focus {
-    outline: none;
+    outline: 1px solid red;
 }
 
 .action:hover {
@@ -62,7 +62,7 @@ main {
 }
 
 .execute:focus {
-    outline: none;
+    outline: 1px solid red;
 }
 
 .execute:hover {
