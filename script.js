@@ -1,3 +1,5 @@
+// это просто тест, попадет ли это изменение в последний PR
+
 const comment = document.getElementById('comment');
 const argLeft = document.getElementById('argLeft');
 const argRight = document.getElementById('argRight');
